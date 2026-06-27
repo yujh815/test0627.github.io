@@ -1,4 +1,4 @@
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz0gzbJ20HxafSEhxAQ8N6dNSdJavFhv2zeipH-Oh6DPF8SQ_WXlGrPTXq8kVc4y5S2OQ/exec";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxmrT0xLcuhCtv3lR0Xvy8N1N7ekHzKyXZjxE_6eXZsZi10DzLMu0VFyPJhzHOr_I8rYQ/exec";
 
 const modal = document.getElementById("lead-modal");
 const openButtons = document.querySelectorAll("[data-open-modal]");
