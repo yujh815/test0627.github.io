@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>메디스파크 상담 신청 샘플</title>
+  <style>
+    :root {
+      --bg: #f4f7f8;
+      --panel: #ffffff;
+      --primary: #0b6b78;
+      --primary-dark: #084a53;
+      --text: #162126;
+      --muted: #60717a;
+      --line: #d8e1e5;
+      --accent: #d9a441;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Malgun Gothic", sans-serif;
+      background: linear-gradient(180deg, #e9f3f5 0%, var(--bg) 100%);
+      color: var(--text);
+      padding: 24px;
+    }
+
+    .wrap {
+      max-width: 560px;
+      margin: 0 auto;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 18px 40px rgba(8, 74, 83, 0.08);
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: 28px;
+      line-height: 1.2;
+    }
+
+    .lead {
+      margin: 0 0 16px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .phone {
+      display: inline-block;
+      margin-bottom: 18px;
+      color: var(--primary-dark);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .notice {
+      background: #eef8f9;
+      border: 1px solid #cde3e6;
+      border-radius: 14px;
+      padding: 14px 16px;
+      margin-bottom: 18px;
+      color: #244149;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .notice strong {
+      color: var(--primary-dark);
+    }
+
+    label {
+      display: block;
+      margin: 14px 0 6px;
+      font-weight: 600;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      font: inherit;
+      background: #fff;
+    }
+
+    textarea {
+      min-height: 96px;
+      resize: vertical;
+    }
+
+    .checkbox {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      margin-top: 16px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .checkbox input {
+      width: 18px;
+      height: 18px;
+      margin-top: 2px;
+    }
+
+    .actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    button, .ghost {
+      border: 0;
+      border-radius: 12px;
+      padding: 14px 16px;
+      font: inherit;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    button {
+      background: var(--primary);
+      color: #fff;
+      font-weight: 700;
+    }
+
+    button:hover {
+      background: var(--primary-dark);
+    }
+
+    .ghost {
+      background: #fff7e8;
+      color: #805400;
+      border: 1px solid #f0d294;
+      font-weight: 700;
+    }
+
+    .status {
+      margin-top: 16px;
+      font-size: 14px;
+      color: var(--muted);
+      min-height: 20px;
+    }
+
+    .fine {
+      margin-top: 14px;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    @media (max-width: 640px) {
+      body { padding: 14px; }
+      .wrap { padding: 20px; border-radius: 16px; }
+      .actions { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>상담 신청하고 빠르게 전화받기</h1>
+    <p class="lead">이름과 연락처만 남겨주시면 상담팀이 확인 후 순차적으로 연락드립니다.</p>
+    <a class="phone" href="tel:01066892348">대표문의 010-6689-2348</a>
+
+    <div class="notice">
+      <strong>안내</strong><br>
+      복잡한 입력 없이 간단히 접수하시면 빠르게 도와드립니다.<br>
+      무리한 영업전화 없이 요청하신 내용 중심으로만 상담을 진행합니다.
+    </div>
+
+    <form id="lead-form">
+      <label for="name">이름</label>
+      <input id="name" name="name" type="text" placeholder="성함을 입력해주세요" required>
+
+      <label for="phone">연락처</label>
+      <input id="phone" name="phone" type="tel" placeholder="연락받으실 번호를 입력해주세요" required>
+
+      <label for="interestType">관심 타입</label>
+      <select id="interestType" name="interestType">
+        <option value="">선택 안함</option>
+        <option value="59A">59A</option>
+        <option value="59B">59B</option>
+        <option value="84A">84A</option>
+        <option value="84B">84B</option>
+        <option value="101">101</option>
+      </select>
+
+      <label for="visitDateTime">방문 희망 일시</label>
+      <input id="visitDateTime" name="visitDateTime" type="text" placeholder="예: 2026-06-28 14:00">
+
+      <label for="inquiry">문의 내용</label>
+      <textarea id="inquiry" name="inquiry" placeholder="분양가, 잔여세대, 방문예약 등 궁금한 내용을 남겨주세요"></textarea>
+
+      <label class="checkbox" for="privacyConsent">
+        <input id="privacyConsent" name="privacyConsent" type="checkbox" required>
+        <span>개인정보 수집 및 이용에 동의합니다. 입력하신 정보는 상담 목적 외에는 사용되지 않습니다.</span>
+      </label>
+
+      <div class="actions">
+        <button type="submit" id="submit-btn">상담 신청하고 전화받기</button>
+        <a class="ghost" href="sms:01066892348?body=%EB%A9%94%EB%94%94%EC%8A%A4%ED%8C%8C%ED%81%AC%20%EC%83%81%EB%8B%B4%20%EB%AC%B8%EC%9D%98">문자상담</a>
+      </div>
+
+      <p class="status" id="form-status"></p>
+      <p class="fine">내부 운영용으로 개발자 정보 `유정희`가 함께 기록되며, 사용자 화면에는 별도로 노출되지 않습니다.</p>
+    </form>
+  </div>
+
+  <script>
+    const SCRIPT_URL = "https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec";
+    const form = document.getElementById("lead-form");
+    const submitBtn = document.getElementById("submit-btn");
+    const statusEl = document.getElementById("form-status");
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const name = form.name.value.trim();
+      const phone = form.phone.value.replace(/\D/g, "");
+      const interestType = form.interestType.value;
+      const visitDateTime = form.visitDateTime.value.trim();
+      const inquiry = form.inquiry.value.trim();
+      const privacyConsent = form.privacyConsent.checked;
+
+      if (!name) {
+        statusEl.textContent = "이름을 입력해주세요.";
+        return;
+      }
+
+      if (phone.length < 10 || phone.length > 11) {
+        statusEl.textContent = "연락처를 정확히 입력해주세요.";
+        return;
+      }
+
+      if (!privacyConsent) {
+        statusEl.textContent = "개인정보 동의 후 접수할 수 있습니다.";
+        return;
+      }
+
+      const payload = {
+        name,
+        phone,
+        interestType,
+        inquiry,
+        visitDateTime,
+        privacyConsent,
+        pageName: "메디스파크 랜딩페이지",
+        projectName: "브레인시티 메디스파크 로제비앙 모아엘가",
+        developer: "유정희",
+        status: "신규접수"
+      };
+
+      submitBtn.disabled = true;
+      statusEl.textContent = "접수 중입니다. 잠시만 기다려주세요.";
+
+      try {
+        let data;
+        if (SCRIPT_URL.includes("YOUR_DEPLOYMENT_ID")) {
+          console.log("[Local Mock Mode] Form submitted successfully. Payload:", payload);
+          await new Promise((resolve) => setTimeout(resolve, 800));
+          data = {
+            ok: true,
+            message: "접수가 완료되었습니다 (로컬 테스트 모드). 담당자가 확인 후 순차적으로 연락드립니다."
+          };
+        } else {
+          const response = await fetch(SCRIPT_URL, {
+            method: "POST",
+            headers: {
+              "Content-Type": "text/plain;charset=utf-8"
+            },
+            body: JSON.stringify(payload)
+          });
+          data = await response.json();
+        }
+
+        if (!data.ok) {
+          throw new Error(data.message || "전송 실패");
+        }
+
+        statusEl.textContent = data.message || "접수가 완료되었습니다. 담당자가 확인 후 순차적으로 연락드립니다.";
+        form.reset();
+      } catch (error) {
+        statusEl.textContent = "전송 중 잠시 문제가 발생했습니다. 다시 시도하시거나 대표번호로 문의해주세요.";
+      } finally {
+        submitBtn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
